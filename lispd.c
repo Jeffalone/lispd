@@ -87,6 +87,8 @@ void lval_println(lval v) {
 
 lval eval_float_op(lval x, char *operator, lval y) {
   /* handle mixed operation everything will become a double */
+  /* TODO: This casting can cause data loss with large long values, implement
+   * fix */
   double trueX, trueY;
   if (x.type == LVAL_LONG) {
     trueX = (double)x.num.iVal;
